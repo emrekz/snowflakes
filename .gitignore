@@ -1,0 +1,6 @@
+*.exe
+interface.c
+old.c
+*.png
+*.txt
+.vscode
