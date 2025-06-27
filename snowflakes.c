@@ -14,16 +14,16 @@ int main() {
     }
   } 
 
-  CreateColumns(origin, 400, 30, '0');
-  CreateColumns(origin, 400, 90, '0');
-  CreateColumns(origin, 400, 150, '0');
-  CreateColumns(origin, 400, 210, '0');
-  CreateColumns(origin, 400, 270, '0');
-  CreateColumns(origin, 400, 330, '0');
+  CreateColumns(origin, 200, 30, '.');
+  CreateColumns(origin, 200, 90, '.');
+  CreateColumns(origin, 200, 150, '.');
+  CreateColumns(origin, 200, 210, '.');
+  CreateColumns(origin, 200, 270, '.');
+  CreateColumns(origin, 200, 330, '.');
   
-  CreateNeedles(50, 50, 35, '#');
-  CreateNeedles(90, 80, 45, 'x');
-  CreateNeedles(150, 120, 55, ':');
+  CreateNeedles(50, 30, 35, '#');
+  CreateNeedles(90, 50, 45, ':');
+  CreateNeedles(150, 45, 55, '*');
 
   for(int h=0; h<HEIGHT_CHAR_COUNT; h++) {
     for(int w=0; w<WIDTH_CHAR_COUNT; w++) {

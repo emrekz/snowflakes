@@ -6,7 +6,7 @@
 
 #define FONT_WIDTH_PX       8
 #define FONT_HEIGHT_PX      17
-#define SIZE                800
+#define SIZE                500
 
 #define RATIO               (FONT_HEIGHT_PX/FONT_WIDTH_PX)
 
