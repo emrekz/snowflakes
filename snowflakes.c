@@ -42,9 +42,20 @@ int main() {
 
 void CreateColumns(ORIGIN srcPoint, int length, int angle, char ptrn) {
   ORIGIN desPoint;
+  int tmp;
   for(int L=0; L<length; L++) {
-    desPoint.y = srcPoint.y + round((L * sin(angle*PI/180)) / FONT_HEIGHT_PX);
-    desPoint.x = srcPoint.x + round((L * cos(angle*PI/180)) / (FONT_WIDTH_PX*RATIO));
+    tmp = srcPoint.y + round((L * sin(angle*PI/180)) / FONT_HEIGHT_PX);
+    if(tmp >= 0 && tmp <= HEIGHT_CHAR_COUNT) {
+      desPoint.y = tmp;
+    } else {
+      desPoint.y = 0;
+    }
+    tmp = srcPoint.x + round((L * cos(angle*PI/180)) / (FONT_WIDTH_PX*RATIO));
+    if(tmp >= 0 && tmp <= WIDTH_CHAR_COUNT) {
+      desPoint.x = tmp;
+    } else {
+      desPoint.x = 0;
+    }
     snowFlake[desPoint.y][desPoint.x][0] = ptrn;
     snowFlake[desPoint.y][desPoint.x][1] = ptrn;
   }
@@ -52,9 +63,20 @@ void CreateColumns(ORIGIN srcPoint, int length, int angle, char ptrn) {
 
 void CreateNeedles(int distance, int length, int angle, char ptrn) {
   ORIGIN desPoint;
+  int tmp;
   for(int i=0; i<6; i++) {
-    desPoint.y = origin.y + round((distance * sin(hexagon[i]*PI/180)) / FONT_HEIGHT_PX);
-    desPoint.x = origin.x + round((distance * cos(hexagon[i]*PI/180)) / (FONT_WIDTH_PX*RATIO));
+    tmp = origin.y + round((distance * sin(hexagon[i]*PI/180)) / FONT_HEIGHT_PX);
+    if(tmp >= 0 && tmp <= HEIGHT_CHAR_COUNT) {
+      desPoint.y = tmp;
+    } else {
+      desPoint.y = 0;
+    }
+    tmp = origin.x + round((distance * cos(hexagon[i]*PI/180)) / (FONT_WIDTH_PX*RATIO));
+    if(tmp >= 0 && tmp <= WIDTH_CHAR_COUNT) {
+      desPoint.x = tmp;
+    } else {
+      desPoint.x = 0;
+    }
     CreateColumns(desPoint, length, angle+hexagon[i], ptrn);
     CreateColumns(desPoint, length, -angle+hexagon[i], ptrn);
   }
